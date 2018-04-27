@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<import resource="classpath:jbr/config/user-beans.xml"/>
+	<context:component-scan base-package="jbr.springmvc"/>
+	<context:annotation-config />
+	<!-- InternalResourceViewResolver : 웹 어플리케이션의 WAR 파일 내에 포함된
+	뷰 템플릿을 찾는다. 뷰 템플릿의 경로는 논리적 뷰 이름에 접두어와 접미어를 붙여 구성한다. -->	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp" />
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+</beans>
